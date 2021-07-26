@@ -1,6 +1,6 @@
 # About
 
-this a modified version the [html5-boilerplate](https://github.com/h5bp/html5-boilerplate).
+this a modified version of [html5-boilerplate](https://github.com/h5bp/html5-boilerplate).
 
 # Modifications
 
