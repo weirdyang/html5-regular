@@ -1,0 +1,10 @@
+@use "~bulma/sass/utilities/mixins.sass" as mixins;
+
+div {
+    @include mixins.tablet-only {
+        background-color: red;
+    }
+    .test {
+        color: red;
+    }
+}
