@@ -25,3 +25,14 @@ this a modified version of [html5-boilerplate](https://github.com/h5bp/html5-boi
 ✔️ - done
 ❌ - not started
 🗑️ - abandoned
+
+# Resources
+
+1.[ Dark theme in a day -  Marcin Wichary](https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a)
+Using a bunch of modern CSS to create a night mode for an app
+
+2. [Button Pal - Codepen - Picalilli](https://codepen.io/piccalilli/pen/Vxpjvo)
+
+3. [Bulding a Settings Component - Adam Argyle](https://web.dev/building-a-settings-component/)
+
+4. [Ten modern layouts in one line of CSS - Una Kravets](https://web.dev/one-line-layouts)
