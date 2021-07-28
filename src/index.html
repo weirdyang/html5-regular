@@ -1,8 +1,10 @@
 <!doctype html>
-<html class="no-js"
+<html class="no-js color-theme-in-transition"
   lang="en">
 
 <head>
+  <meta name="color-scheme"
+    content="dark light">
   <meta charset="utf-8">
   <title>replace with your title</title>
   <meta name="description"
@@ -31,26 +33,91 @@
     href="css/main.css">
 
   <link rel="stylesheet"
-    href="css/index.scss">
+    href="css/styles.scss">
 
   <meta name="theme-color"
     content="#fafafa">
 </head>
 
 <body>
-
   <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <!--navbar-->
+  <nav class="navbar navbar-primary">
+    <div class="navbar-start container">
+      <button type="button"
+        class="button button-outlined button-outlined-on-primary"
+        class="button">
+        Home
+      </button>
+    </div>
+    <div class="navbar-items">
+      <span class="link">
+        First
+      </span>
+      <span class="link is-desktop">
+        Home
+      </span>
+      <span class="link is-desktop">
+        Contact
+      </span>
+      <span class="link is-desktop">
+        Disappear
+      </span>
+    </div>
+    <div class="navbar-end container">
+      <button type="button"
+        class="button button-outlined"
+        id="darkmode-toggle"
+        class="button">
+        darkmode toggle
+      </button>
+    </div>
+  </nav>
+  <main>
+    <!--sidemnu-->
 
-  <div>
-    <p class="test">
-      hello
-    </p>
+    <fieldset>
+
+      <!--main content-->
+      <div class="container">
+        <button type="button"
+          class="button button-outlined"
+          class="button">
+          test
+        </button>
+      </div>
+      <div class="container">
+        <button type="button"
+          class="button button-outlined"
+          class="button">
+          OUTLINED BUTTON
+        </button>
+        <button type="button"
+          class="button button-outlined-secondary"
+          class="button">
+          OUTLINED BUTTON
+        </button>
+        <button type="button"
+          class="button button-raised">
+          BASIC BUTTON
+        </button>
+        <p>
+          text
+        </p>
+      </div>
+      <div class="container"
+        style="height: 10000px;">
+        long container to test sticky navbar
+      </div>
+    </fieldset>
+  </main>
   </div>
+  <!--footer-->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
+  <script src="js/ui/dark-mode.ts"></script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;

@@ -1,0 +1,264 @@
+@import "../scss/variables";
+
+:root {
+    --background: hsl(255,0%, 90%);
+    --background-hover:#{$beige-lighter};
+    --body: hsl(255,0%, 100%);
+    --on-body: #{$color-text-default};
+    --on-background: #{$color-text-default};
+    --hue: 237; /* Blue */
+    --accent-hue: 300; /* Orange */
+
+    --placeholder-text: #{$color-bg-lighter};
+
+    --primary: hsl(var(--hue), 15%, 35%);
+    --primary--variant: hsl(var(--hue), 15%, 55%);
+    --on-primary: #fff;
+
+    --secondary: hsl(var(--accent-hue), 70%, 25%);
+    --secondary--variant: hsl(var(--accent-hue), 90%, 25%);
+    --on-secondary: #fff;
+
+
+    --error: #b00020;
+    --on-error: #($color-text-default);
+
+    --br: 0.25rem;
+
+    --space-xxs: .25rem;
+    --space-xs:  .5rem;
+    --space-sm:  1rem;
+    --space-md:  1.5rem;
+    --space-lg:  2rem;
+    --space-xl:  3rem;
+    --space-xxl: 6rem;
+    --opacity-hover: 0.5;
+
+    --shadow-base: 0 0 0;
+
+    --shadow-1:  rgb(var(--shadow-base)/ 10%);
+    --shadow-2: rgb(var(--shadow-base) / 14%);
+    --shadow-3: rgb(var(--shadow-base) / 12%);
+
+    color: var(--on-background);
+    background-color: var(--background);
+
+    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.01rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+}
+// source; https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *:before,
+html.color-theme-in-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+body, html {
+    width: 100%;
+}
+[data-theme='dark'] {
+    --background: #{$color-bg-dark};
+    --background-hover:#{$color-bg-light};
+    --on-body: #{$color-text-light};
+    --on-background: #{$color-text-light};
+
+    --primary: hsl(var(--hue), 15%, 50%);
+    --primary--variant: hsl(var(--hue), 15%, 75%);
+    --on-primary: #fff;
+
+    --secondary: hsl(var(--accent-hue), 70%, 67%);
+    --secondary--variant: hsl(var(--accent-hue), 90%, 77%);
+    --on-secondary: #fff;
+
+    --shadow-base: 210 210 210;
+    --shadow-1:  rgb(var(--shadow-base)/ 30%);
+    --shadow-2: rgb(var(--shadow-base) / 32%);
+    --shadow-3: rgb(var(--shadow-base)/ 34%);
+
+    img {
+        filter: invert(100%) hue-rotate(180deg);
+        mix-blend-mode: screen;
+    }
+}
+@mixin primary {
+    color: var(--on-primary);
+    background-color: var(--primary);
+}
+@mixin primary-variant {
+    color: var(--on-primary);
+    background-color: var(--primary--variant);
+}
+@mixin secondary {
+    color: var(--on-secondary);
+    background-color: var(--secondary);
+}
+@mixin secondary-variant {
+    color: var(--on-secondary);
+    background-color: var(--secondary--variant);
+}
+
+main {
+    display: grid;
+    gap: var(--space-xl);
+    place-content: center;
+    padding: var(--space-sm);
+    @media screen and (min-width: 540px) {
+        padding: var(--space-lg);
+    }
+    @media screen and (min-width: 800px) {
+        padding: var(--space-xl);
+
+    }
+    background-color: var(--background);
+    color: var(--on-background);
+
+    .container {
+        margin: auto;
+    }
+}
+$navbar-height: 3.25rem;
+
+.navbar {
+    height: 3.25rem;
+    padding: var(--space-xxs) 0;
+    margin: 0;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    place-content: center;
+    .navbar-start {
+        padding-left: var(--space-xxs);
+    }
+    .navbar-end {
+        padding-right: var(--space-xxs);
+    }
+    &-secondary {
+        @include secondary;
+    }
+    &-primary {
+        @include primary;
+    }
+    .navbar-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        .link:first-child {
+            margin-left: var(--space-xxs);
+        }
+        .link:last-child {
+            margin-right: var(--space-xxs);
+        }
+        .link {
+            margin: 0 var(--space-xxs);
+        }
+        .link.is-desktop {
+            @media screen and (max-width: 800px) {
+                display: none;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
+
+input {
+    border-radius: var(--br);
+    padding: var(--space-xxs);
+}
+
+input[type="search"], input[type="text"] {
+    background-color: var(--background);
+    color: var(--on-background);
+}
+::placeholder {
+    color: var(--placeholder-text);
+}
+input:focus {
+    outline: none;
+}
+select {
+    width: 100%;
+    height: 3rem;
+    margin: var(--space-sm) 0;
+}
+// source: https://codepen.io/piccalilli/pen/Vxpjvo;
+.button {
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    border-radius: var(--br);
+    color: var(--on-background);
+    padding: var(--space-xxs) var(--space-sm);
+    margin: var(--space-xxs);
+    background-color: var(--background);
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover{
+        @include primary;
+        box-shadow: 0px 0px 0px 1px var(--on-primary) inset;
+    }
+
+    &:active {
+        transform: scale(0.99);
+    }
+
+    &-raised {
+        border: none;
+        background-color: var(--primary);
+        color: var(--on-primary);
+        box-shadow: 0 3px 1px -2px var(--shadow-1),
+                    0 2px 2px 0 var(--shadow-2),
+                    0 1px 5px 0 var(--shadow-3);
+        &:hover {
+            background-color: var(--primary--variant);
+            color: var(--background);
+            box-shadow: 0 3px 1px -2px var(--shadow-1), 0 2px 2px 0 var(--shadow-2), 0 1px 5px 0 var(--shadow-3);
+        }
+    }
+    &-outlined {
+        background-color: transparent;
+        border: 1px solid var(--primary--variant);
+        color: var(--primary--variant);
+        &:hover {
+            @include primary;
+            box-shadow: none;
+            border: 1px solid var(--on-primary);
+        }
+        &-on-primary {
+            color: var(--on-primary);
+            border: 1px solid var(--on-primary);
+            &:hover {
+                @include primary-variant;
+            }
+        }
+    }
+    &-outlined-secondary {
+        background-color: transparent;
+        color: var(--secondary);
+        border: 1px solid var(--secondary);
+        &:hover{
+            @include secondary;
+            box-shadow: none;
+        }
+    }
+
+}
