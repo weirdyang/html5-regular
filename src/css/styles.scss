@@ -313,6 +313,7 @@ fieldset {
            border-radius: var(--br);
            padding: var(--space-xxs) var(--space-sm);
            margin: var(--space-xxs);
+           @include hover-brighten;
         }        
         .link:first-child {
             margin-left: var(--space-sm);
