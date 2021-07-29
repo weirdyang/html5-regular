@@ -391,10 +391,10 @@ select {
         justify-content: center;
         padding: 0;
         border: none;
-        margin: 0;
         @include elevation-2;
         span {
             width: 1rem;
+            padding: 0.125;
             font-size: 1rem;
             position: relative;
         }
