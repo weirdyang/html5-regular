@@ -21,15 +21,14 @@ this a modified version of [html5-boilerplate](https://github.com/h5bp/html5-boi
 5. cards [⭕]
 6. basic form inputs [❌]
 
-⭕ - in progress
-✔️ - done
-❌ - not started
-🗑️ - abandoned
+⭕ - in progress  
+✔️ - done  
+❌ - not started  
+🗑️ - abandoned  
 
 # Resources
 
 1.[ Dark theme in a day -  Marcin Wichary](https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a)
-Using a bunch of modern CSS to create a night mode for an app
 
 2. [Button Pal - Codepen - Picalilli](https://codepen.io/piccalilli/pen/Vxpjvo)
 
