@@ -75,7 +75,7 @@
     --shadow-2: rgb(var(--shadow-base) / 28%);
     --shadow-3: rgb(var(--shadow-base) / 22%);
 
-    --min-card-width: 300px;
+    --min-card-width: 450px;
     background-color: var(--surface1);
     color: var(--text1);
 
@@ -479,6 +479,7 @@ select {
     flex-direction: column;
     padding: 1rem;
     justify-content: space-between;
+    max-width: 80vw;
 }
 
 .cards-group {
