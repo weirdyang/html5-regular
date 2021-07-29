@@ -444,12 +444,17 @@ select {
         margin: 0;
     }
     .card-header {
-        @include elevation-2;
-        padding: var(--space-xxs) var(--space-sm);
+        display: flex;
+        align-items: center;
+        border-radius: var(--br) var(--br) 0 0;
+        border-bottom: 1px solid var(--shadow-3);
+        padding: var(--space-xs) var(--space-sm);
+        height: 2rem;
     }
     .card-content {
         display: flex;
         flex-direction: column;
+        padding: 0 var(--space-xs);
     }
     .card-text {
         border: 1px solid var(--shadow-3);
@@ -461,7 +466,10 @@ select {
 
     .card-footer {
         margin-top: var(--space-xs);
-         * {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        * {
             width: 100%;
         }
     }
@@ -476,7 +484,7 @@ select {
     }
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0;
     justify-content: space-between;
     min-width: var(--min-card-width);
     max-width: 75vw;
