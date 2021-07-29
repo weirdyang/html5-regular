@@ -152,7 +152,9 @@ body, html {
     color: var(--brand);
     background-color: var(--brand);
 }
-
+.brand {
+    @include primary;
+}
 .text1 {
     color: var(--text1)
 }
