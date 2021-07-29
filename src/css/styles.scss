@@ -85,6 +85,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+
 }
 // source; https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a
 html.color-theme-in-transition,
@@ -207,6 +208,10 @@ p.text1 {
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    &::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+    }
 }
 h1,h2,h3 {
     margin: 0;
@@ -337,9 +342,7 @@ input {
     border-radius: var(--br);
     padding: var(--space-xxs);
 }
-input[type="checkbox"] {
 
-}
 input[type="search"], input[type="text"] {
     background-color: var(--background);
     color: var(--on-background);
@@ -414,7 +417,23 @@ select {
         }
     }
 }
+@mixin styled-scrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 0.5em;
+      }
 
+      &::-webkit-scrollbar-track {
+        background-color: var(--shadow-3);
+        opacity: 0.2;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--surface4);
+        outline: 0.25rem var(--surface4);
+      }
+}
 .card {
     h3 {
         margin: 0;
@@ -432,8 +451,9 @@ select {
         margin: var(--space-xxs) 0;
         padding: 0 var(--space-sm);
         max-height: 8rem;
-        @include hide-scrollbar;
+       @include styled-scrollbar;
     }
+
     .card-footer {
         margin-top: var(--space-xs);
          * {
