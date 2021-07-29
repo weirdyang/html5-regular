@@ -75,7 +75,7 @@
     --shadow-2: rgb(var(--shadow-base) / 28%);
     --shadow-3: rgb(var(--shadow-base) / 22%);
 
-    --min-card-width: 150px;
+    --min-card-width: 300px;
     background-color: var(--surface1);
     color: var(--text1);
 
@@ -85,6 +85,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+
 }
 // source; https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a
 html.color-theme-in-transition,
@@ -148,10 +149,12 @@ body, html {
     filter: brightness(120%)
 }
 @mixin primary {
-    color: var(--brand);
-    background-color: var(--brand);
+    color: var(--brand)!important;
+    background-color: var(--brand)!important;
 }
-
+.brand {
+    @include primary;
+}
 .text1 {
     color: var(--text1)
 }
@@ -179,8 +182,8 @@ p.text1 {
 }
 
 @mixin surface4 {
-  background-color: var(--surface4);
-  color: var(--text1);
+  background-color: var(--surface4)!important;
+  color: var(--text1)!important;
 }
 .surface1 {
     @include surface1;
@@ -207,6 +210,10 @@ p.text1 {
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    &::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+    }
 }
 h1,h2,h3 {
     margin: 0;
@@ -222,18 +229,16 @@ main {
     }
     @media screen and (min-width: 800px) {
         padding: var(--space-xl);
-
-    }
-    background-color: var(--background);
-    color: var(--on-background);
+   }
 
     .container {
         margin: auto;
     }
 }
 $navbar-height: 3.25rem;
-main a {
-    color: var(--secondary);
+
+a {
+    color: var(--text1);
     &:hover {
         @include hover-filter-light;
     }
@@ -245,7 +250,6 @@ legend {
 
 }
 fieldset {
-    border: 1px solid var(--primary);
     padding: var(--space-xs);
     @include elevation-2;
     input {
@@ -276,9 +280,8 @@ fieldset {
     place-content: center;
     border-radius: 0%;
     @include elevation-4;
-    color: CanvasText;
+   
     a {
-        color: CanvasText;
         text-decoration: none;
         &:hover {
             text-decoration: underline;
@@ -286,9 +289,13 @@ fieldset {
     }
     .navbar-start {
         padding-left: var(--space-xxs);
+        align-items: stretch;
+        display: flex;
     }
     .navbar-end {
         padding-right: var(--space-xxs);
+        align-items: stretch;
+        display: flex;
     }
     &-brand {
         @include primary;
@@ -298,22 +305,21 @@ fieldset {
     }
     .navbar-items {
         display: grid;
+        align-items: stretch;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         place-content: center;
+        .link {
+           text-align: center;
+           border-radius: var(--br);
+           padding: var(--space-xxs) var(--space-sm);
+           margin: var(--space-xxs);
+           @include hover-brighten;
+        }        
         .link:first-child {
             margin-left: var(--space-sm);
         }
         .link:last-child {
             margin-right: var(--space-sm);
-        }
-        .link {
-            display: flex;
-            :hover {
-                filter: brightness(120%);
-            }
-            * {
-                margin: auto;
-            }
         }
         .link.is-desktop {
             @media screen and (max-width: 800px) {
@@ -337,12 +343,10 @@ input {
     border-radius: var(--br);
     padding: var(--space-xxs);
 }
-input[type="checkbox"] {
-    accent-color: var(--brand);
-}
+
 input[type="search"], input[type="text"] {
-    background-color: var(--background);
-    color: var(--on-background);
+    background-color: transparent;
+    color: var(--text2);
 }
 ::placeholder {
     color: var(--placeholder-text);
@@ -363,13 +367,12 @@ select {
     display: inline-block;
     border: 1px solid transparent;
     text-decoration: none;
-    font-size: 1rem;
     cursor: pointer;
     text-align: center;
     border-radius: var(--br);
     padding: var(--space-xxs) var(--space-sm);
     margin: var(--space-xxs);
-    background-color: var(--surface3);
+    @include surface3;
     border-color: var(--surface4);
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -388,10 +391,14 @@ select {
         background-color: transparent;
         text-align: center;
         justify-content: center;
+        padding: 0;
+        border: none;
         @include elevation-2;
         span {
-            margin: 0;
-            padding-bottom: 1px;
+            width: 1rem;
+            padding: 0.125;
+            font-size: 1rem;
+            position: relative;
         }
     }
     &-outlined {
@@ -414,7 +421,23 @@ select {
         }
     }
 }
+@mixin styled-scrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 0.5em;
+      }
 
+      &::-webkit-scrollbar-track {
+        background-color: var(--shadow-3);
+        opacity: 0.2;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--surface4);
+        outline: 0.25rem var(--surface4);
+      }
+}
 .card {
     h3 {
         margin: 0;
@@ -432,8 +455,9 @@ select {
         margin: var(--space-xxs) 0;
         padding: 0 var(--space-sm);
         max-height: 8rem;
-        @include hide-scrollbar;
+       @include styled-scrollbar;
     }
+
     .card-footer {
         margin-top: var(--space-xs);
          * {
