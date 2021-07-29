@@ -309,15 +309,6 @@ fieldset {
         .link:last-child {
             margin-right: var(--space-sm);
         }
-        .link {
-            display: flex;
-            :hover {
-                filter: brightness(120%);
-            }
-            * {
-                margin: auto;
-            }
-        }
         .link.is-desktop {
             @media screen and (max-width: 800px) {
                 display: none;
