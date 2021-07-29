@@ -18,7 +18,7 @@ this a modified version of [html5-boilerplate](https://github.com/h5bp/html5-boi
 2. sticky navbar [✔️]
 3. hamburger menu [❌]
 4. sidemenu [❌]
-5. cards [❌]
+5. cards [⭕]
 6. basic form inputs [❌]
 
 ⭕ - in progress
