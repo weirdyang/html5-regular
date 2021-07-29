@@ -304,11 +304,9 @@ fieldset {
         }
     }
     .navbar-items {
-        display: grid;
-        justify-items: start;
+        display: flex;
         align-items: stretch;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        place-content: center start;
+        justify-content: flex-start;
         .link {
            text-align: center;
            border-radius: var(--br);
