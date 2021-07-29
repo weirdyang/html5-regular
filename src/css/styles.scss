@@ -1,23 +1,58 @@
 @import "../scss/variables";
 
 :root {
-    --background: hsl(255,0%, 90%);
-    --background-hover:#{$beige-lighter};
-    --body: hsl(255,0%, 100%);
-    --on-body: #{$color-text-default};
-    --on-background: #{$color-text-default};
-    --hue: 237; /* Blue */
-    --accent-hue: 300; /* Orange */
+    --brand: hsl(172, 100%, 55%);
+    --brand-hue: 172;
+    --brand-saturation: 100%;
+    --brand-lightness: 55%;
 
-    --placeholder-text: #{$color-bg-lighter};
+    --brand-light: hsl(var(--brand-hue)
+    var(--brand-saturation)
+    var(--brand-lightness));
 
-    --primary: hsl(var(--hue), 15%, 35%);
-    --primary--variant: hsl(var(--hue), 15%, 55%);
-    --on-primary: #fff;
+    --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+    --text2-light: hsl(var(--brand-hue) 30% 30%);
 
-    --secondary: hsl(var(--accent-hue), 70%, 25%);
-    --secondary--variant: hsl(var(--accent-hue), 90%, 25%);
-    --on-secondary: #fff;
+    --surface1-light: hsl(var(--brand-hue) 25% 90%);
+    --surface2-light: hsl(var(--brand-hue) 20% 99%);
+    --surface3-light: hsl(var(--brand-hue) 20% 92%);
+    --surface4-light: hsl(var(--brand-hue) 20% 85%);
+
+    --surface-shadow-light: var(--brand-hue) 10% 20%;
+    --shadow-strength-light: .2;
+
+    --brand-dark: hsl(
+    var(--brand-hue)
+    calc(var(--brand-saturation) / 2)
+    calc(var(--brand-lightness) / 1.5));
+
+    --text1-dark: hsl(var(--brand-hue) 15% 85%);
+    --text2-dark: hsl(var(--brand-hue) 5% 65%);
+
+    --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+    --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+    --surface3-dark: hsl(var(--brand-hue) 5%  20%);
+    --surface4-dark: hsl(var(--brand-hue) 5% 25%);
+
+    --surface-shadow-dark: var(--brand-hue) 50% 3%;
+    --shadow-strength-dark: .8;
+
+
+    --brand-dim: hsl(
+    var(--brand-hue)
+    calc(var(--brand-saturation) / 1.25)
+    calc(var(--brand-lightness) / 1.25));
+
+    --text1-dim: hsl(var(--brand-hue) 15% 75%);
+    --text2-dim: hsl(var(--brand-hue) 10% 61%);
+
+    --surface1-dim: hsl(var(--brand-hue) 10% 20%);
+    --surface2-dim: hsl(var(--brand-hue) 10% 25%);
+    --surface3-dim: hsl(var(--brand-hue) 5%  30%);
+    --surface4-dim: hsl(var(--brand-hue) 5% 35%);
+
+    --surface-shadow-dim: var(--brand-hue) 30% 13%;
+    --shadow-strength-dim: .2;
 
 
     --error: #b00020;
@@ -36,23 +71,20 @@
 
     --shadow-base: 0 0 0;
 
-    --shadow-1:  rgb(var(--shadow-base)/ 10%);
-    --shadow-2: rgb(var(--shadow-base) / 14%);
-    --shadow-3: rgb(var(--shadow-base) / 12%);
+    --shadow-1:  rgb(var(--shadow-base)/ 26%);
+    --shadow-2: rgb(var(--shadow-base) / 28%);
+    --shadow-3: rgb(var(--shadow-base) / 22%);
 
-    color: var(--on-background);
-    background-color: var(--background);
+    --min-card-width: 150px;
+    background-color: var(--surface1);
+    color: var(--text1);
 
-    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.4rem;
-    line-height: 2rem;
+    font-family: system-ui, sans-serif;
+    font-size: 1.2rem;
     letter-spacing: 0.01rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-
 }
 // source; https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a
 html.color-theme-in-transition,
@@ -64,31 +96,47 @@ html.color-theme-in-transition *:after {
 }
 body, html {
     width: 100%;
-}
-[data-theme='dark'] {
-    --background: #{$color-bg-dark};
-    --background-hover:#{$color-bg-light};
-    --on-body: #{$color-text-light};
-    --on-background: #{$color-text-light};
-
-    --primary: hsl(var(--hue), 15%, 50%);
-    --primary--variant: hsl(var(--hue), 15%, 75%);
-    --on-primary: #fff;
-
-    --secondary: hsl(var(--accent-hue), 70%, 67%);
-    --secondary--variant: hsl(var(--accent-hue), 90%, 77%);
-    --on-secondary: #fff;
-
-    --shadow-base: 210 210 210;
-    --shadow-1:  rgb(var(--shadow-base)/ 30%);
-    --shadow-2: rgb(var(--shadow-base) / 32%);
-    --shadow-3: rgb(var(--shadow-base)/ 34%);
-
-
-    img {
-        filter: invert(100%) hue-rotate(180deg);
-        mix-blend-mode: screen;
+    * {
+        border-radius: var(--br);
     }
+}
+[data-theme="light"] {
+    color-scheme: light;
+    --brand: var(--brand-light);
+    --text1: var(--text1-light);
+    --text2: var(--text2-light);
+    --surface1: var(--surface1-light);
+    --surface2: var(--surface2-light);
+    --surface3: var(--surface3-light);
+    --surface4: var(--surface4-light);
+    --surface-shadow: var(--surface-shadow-light);
+    --shadow-strength: var(--shadow-strength-light);
+  }
+  [data-theme="dark"] {
+      color-scheme: dark;
+
+      --brand: var(--brand-dark);
+      --text1: var(--text1-dark);
+      --text2: var(--text2-dark);
+      --surface1: var(--surface1-dark);
+      --surface2: var(--surface2-dark);
+      --surface3: var(--surface3-dark);
+      --surface4: var(--surface4-dark);
+      --surface-shadow: var(--surface-shadow-dark);
+      --shadow-strength: var(--shadow-strength-dark);
+  }
+  [data-theme="dim"] {
+    color-scheme: dark;
+
+    --brand: var(--brand-dim);
+    --text1: var(--text1-dim);
+    --text2: var(--text2-dim);
+    --surface1: var(--surface1-dim);
+    --surface2: var(--surface2-dim);
+    --surface3: var(--surface3-dim);
+    --surface4: var(--surface4-dim);
+    --surface-shadow: var(--surface-shadow-dim);
+    --shadow-strength: var(--shadow-strength-dim);
 }
 @mixin hover-brighten {
     box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.3);
@@ -100,22 +148,70 @@ body, html {
     filter: brightness(120%)
 }
 @mixin primary {
-    color: var(--on-primary);
-    background-color: var(--primary);
-}
-@mixin primary-variant {
-    color: var(--on-primary);
-    background-color: var(--primary--variant);
-}
-@mixin secondary {
-    color: var(--on-secondary);
-    background-color: var(--secondary);
-}
-@mixin secondary-variant {
-    color: var(--on-secondary);
-    background-color: var(--secondary--variant);
+    color: var(--brand);
+    background-color: var(--brand);
 }
 
+.text1 {
+    color: var(--text1)
+}
+
+p.text1 {
+    font-weight: 200
+}
+
+.text2 {
+    color: var(--text2);
+}
+@mixin surface1 {
+    background-color: var(--surface1);
+    color: var(--text2);
+}
+
+@mixin surface2 {
+  background-color: var(--surface2);
+  color: var(--text2);
+}
+
+@mixin surface3 {
+  background-color: var(--surface3);
+  color: var(--text1);
+}
+
+@mixin surface4 {
+  background-color: var(--surface4);
+  color: var(--text1);
+}
+.surface1 {
+    @include surface1;
+}
+.surface2 {
+    @include surface2;
+}
+.surface3 {
+    @include surface3;
+}
+.surface4 {
+    @include surface4;
+}
+@mixin elevation-4 {
+    box-shadow: 0 2px 5px var(--shadow-1);
+}
+@mixin elevation-2 {
+    box-shadow: 0 3px 1px -2px var(--shadow-1),
+    0 2px 2px 0 var(--shadow-2),
+    0 1px 5px 0 var(--shadow-3);
+}
+@mixin hide-scrollbar {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+h1,h2,h3 {
+    margin: 0;
+    font-weight: 500;
+}
 main {
     display: grid;
     gap: var(--space-xl);
@@ -136,7 +232,38 @@ main {
     }
 }
 $navbar-height: 3.25rem;
+main a {
+    color: var(--secondary);
+    &:hover {
+        @include hover-filter-light;
+    }
+}
+legend {
+    background-color: var(--surface3);
+    padding: var(--space-xxs) var(--space-sm);
+    @include elevation-2;
 
+}
+fieldset {
+    border: 1px solid var(--primary);
+    padding: var(--space-xs);
+    @include elevation-2;
+    input {
+        margin: var(--space-xs);
+    }
+    &:focus-within {
+        background: var(--surface2);
+        legend {
+            background: var(--surface2);
+        }
+    }
+}
+.rad-shadow {
+    box-shadow:
+  0 3.3px 5px hsl(var(--surface-shadow) / calc(var(--shadow-strength) - 0.184)),
+  0 11.2px 16.8px hsl(var(--surface-shadow) / calc(var(--shadow-strength) - 0.176)),
+  0 50px 75px hsl(var(--surface-shadow) / var(--shadow-strength));
+}
 .navbar {
     height: 3.25rem;
     padding: var(--space-xxs) 0;
@@ -147,7 +274,11 @@ $navbar-height: 3.25rem;
     display: grid;
     grid-template-columns: auto 1fr auto;
     place-content: center;
+    border-radius: 0%;
+    @include elevation-4;
+    color: CanvasText;
     a {
+        color: CanvasText;
         text-decoration: none;
         &:hover {
             text-decoration: underline;
@@ -159,11 +290,11 @@ $navbar-height: 3.25rem;
     .navbar-end {
         padding-right: var(--space-xxs);
     }
-    &-secondary {
-        @include secondary;
-    }
-    &-primary {
+    &-brand {
         @include primary;
+        a {
+            color: var(--on-primary);
+        }
     }
     .navbar-items {
         display: grid;
@@ -176,9 +307,12 @@ $navbar-height: 3.25rem;
             margin-right: var(--space-sm);
         }
         .link {
-            margin: 0 var(--space-xxs);
+            display: flex;
             :hover {
                 filter: brightness(120%);
+            }
+            * {
+                margin: auto;
             }
         }
         .link.is-desktop {
@@ -203,7 +337,9 @@ input {
     border-radius: var(--br);
     padding: var(--space-xxs);
 }
-
+input[type="checkbox"] {
+    accent-color: var(--brand);
+}
 input[type="search"], input[type="text"] {
     background-color: var(--background);
     color: var(--on-background);
@@ -225,68 +361,104 @@ select {
 // source: https://codepen.io/piccalilli/pen/Vxpjvo;
 .button {
     display: inline-block;
-    border: 1px solid var(--on-background);
-    padding: 1rem 2rem;
-    margin: 0;
+    border: 1px solid transparent;
     text-decoration: none;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
     border-radius: var(--br);
-    color: var(--on-background);
     padding: var(--space-xxs) var(--space-sm);
     margin: var(--space-xxs);
-    background-color: var(--background);
-    text-transform: uppercase;
+    background-color: var(--surface3);
+    border-color: var(--surface4);
     -webkit-appearance: none;
     -moz-appearance: none;
     &:hover{
-        @include primary;
-        box-shadow: 0px 0px 0px 1px var(--on-primary) inset;
+        box-shadow: 0px 0px 0px 1px var(--surface4);
+        @include hover-brighten;
     }
 
     &:active {
         transform: scale(0.99);
     }
-
-    &-raised {
-        border: none;
-        background-color: var(--primary);
-        color: var(--on-primary);
-        box-shadow: 0 3px 1px -2px var(--shadow-1),
-                    0 2px 2px 0 var(--shadow-2),
-                    0 1px 5px 0 var(--shadow-3);
-        &:hover {
-            background-color: var(--primary--variant);
-            color: var(--background);
-            box-shadow: 0 3px 1px -2px var(--shadow-1), 0 2px 2px 0 var(--shadow-2), 0 1px 5px 0 var(--shadow-3);
+    &.circle {
+        display: flex;
+        max-width: 2em;
+        border-radius: 50%;
+        background-color: transparent;
+        text-align: center;
+        justify-content: center;
+        @include elevation-2;
+        span {
+            margin: 0;
+            padding-bottom: 1px;
         }
     }
     &-outlined {
+        border-style: solid;
+        border-width: 1px;
+        border-color: CanvasText;
         background-color: transparent;
-        border: 1px solid var(--primary--variant);
-        color: var(--primary--variant);
-        &:hover {
-            @include primary;
-            box-shadow: none;
-            border: 1px solid var(--on-primary);
-        }
-        &-on-primary {
-            color: var(--on-primary);
-            border: 1px solid var(--on-primary);
-            &:hover {
-                @include primary-variant;
-            }
-        }
+        color: var(--text1);
+       &:hover {
+           @include hover-brighten;
+       }
     }
-    &-outlined-secondary {
+    &-raised {
+        border: none;
         background-color: transparent;
-        color: var(--secondary);
-        border: 1px solid var(--secondary);
+        @include elevation-2;
         &:hover{
-            @include secondary;
-            box-shadow: none;
+            @include elevation-2;
+            @include surface2;
         }
     }
+}
 
+.card {
+    h3 {
+        margin: 0;
+    }
+    .card-header {
+        @include elevation-2;
+        padding: var(--space-xxs) var(--space-sm);
+    }
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-text {
+        border: 1px solid var(--surface4);
+        margin: var(--space-xxs) 0;
+        padding: 0 var(--space-sm);
+        max-height: 8rem;
+        @include hide-scrollbar;
+    }
+    .card-footer {
+        margin-top: var(--space-xs);
+         * {
+            width: 100%;
+        }
+    }
+    figure{
+        display: flex;
+        justify-content: center;
+    }
+    .visual {
+        height: 8rem;
+        min-height: 100px;
+        min-width: var(--min-card-width);
+        object-fit: contain;
+    }
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.cards-group {
+    display: grid;
+    gap: 1.25rem;
+    row-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-card-width), 1fr));
 }

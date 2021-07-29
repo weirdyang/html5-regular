@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const $darkMode = document.getElementById('darkmode-toggle') as HTMLElement;
-  console.log($darkMode);
+  const $icon = document.getElementById('darkmode-icon') as HTMLElement;
+  const doc = document.firstElementChild as HTMLElement;
   const setDarkPreference = (setting: boolean): void => {
     localStorage.setItem('dark', setting.toString())
     if (setting) {
-      $darkMode.innerText = "☀️";
-      document.body.setAttribute('data-theme', 'dark')
+      $icon.innerText = "☀️";
+      doc.setAttribute('data-theme', 'dark')
     } else {
-      $darkMode.innerText = "🌙";
-      document.body.removeAttribute('data-theme')
+      $icon.innerText = "🌙";
+      doc.setAttribute('data-theme', 'light')
     }
   }
   const checkPreference = () => {
