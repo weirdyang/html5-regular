@@ -389,12 +389,13 @@ select {
         background-color: transparent;
         text-align: center;
         justify-content: center;
+        padding: 0;
+        border: none;
+        margin: 0;
         @include elevation-2;
         span {
-            margin: 0;
             width: 1rem;
             font-size: 1rem;
-            border: 0;
             position: relative;
         }
     }
