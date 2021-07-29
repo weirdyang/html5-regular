@@ -369,7 +369,7 @@ select {
     border-radius: var(--br);
     padding: var(--space-xxs) var(--space-sm);
     margin: var(--space-xxs);
-    background-color: var(--surface3);
+    @include surface3;
     border-color: var(--surface4);
     -webkit-appearance: none;
     -moz-appearance: none;
