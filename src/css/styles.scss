@@ -182,8 +182,8 @@ p.text1 {
 }
 
 @mixin surface4 {
-  background-color: var(--surface4);
-  color: var(--text1);
+  background-color: var(--surface4)!important;
+  color: var(--text1)!important;
 }
 .surface1 {
     @include surface1;
@@ -392,6 +392,8 @@ select {
         @include elevation-2;
         span {
             margin: 0;
+            width: 1rem;
+            font-size: 1rem;
             padding-bottom: 1px;
         }
     }
