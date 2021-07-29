@@ -305,6 +305,7 @@ fieldset {
     }
     .navbar-items {
         display: grid;
+        justify-items: start;
         align-items: stretch;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         place-content: center start;
