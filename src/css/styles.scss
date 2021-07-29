@@ -149,8 +149,8 @@ body, html {
     filter: brightness(120%)
 }
 @mixin primary {
-    color: var(--brand);
-    background-color: var(--brand);
+    color: var(--brand)!important;
+    background-color: var(--brand)!important;
 }
 .brand {
     @include primary;
