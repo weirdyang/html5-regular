@@ -239,7 +239,7 @@ $navbar-height: 3.25rem;
 
 a {
     color: var(--text1);
-    &:hover {
+    &:hover:not(.button) {
         @include hover-filter-light;
     }
 }
@@ -283,7 +283,7 @@ fieldset {
 
     a {
         text-decoration: none;
-        &:hover {
+        &:hover:not(.button) {
             text-decoration: underline;
         }
     }
