@@ -75,7 +75,7 @@
     --shadow-2: rgb(var(--shadow-base) / 28%);
     --shadow-3: rgb(var(--shadow-base) / 22%);
 
-    --min-card-width: 450px;
+    --min-card-width: 300px;
     background-color: var(--surface1);
     color: var(--text1);
 
@@ -279,7 +279,7 @@ fieldset {
     place-content: center;
     border-radius: 0%;
     @include elevation-4;
-   
+
     a {
         text-decoration: none;
         &:hover {
@@ -314,7 +314,7 @@ fieldset {
           &:hover{
            @include hover-brighten;
           }
-        }        
+        }
         .link:first-child {
             margin-left: var(--space-sm);
         }
@@ -469,16 +469,16 @@ select {
         justify-content: center;
     }
     .visual {
-        height: 8rem;
         min-height: 100px;
-        min-width: var(--min-card-width);
+        max-width: var(--min-card-width);
         object-fit: contain;
     }
     display: flex;
     flex-direction: column;
     padding: 1rem;
     justify-content: space-between;
-    max-width: 70vw;
+    min-width: var(--min-card-width);
+    max-width: 75vw;
     min-height: 32rem;
 }
 
@@ -487,4 +487,5 @@ select {
     gap: 1.25rem;
     row-gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(var(--min-card-width), 1fr));
+    place-content: center;
 }
