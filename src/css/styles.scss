@@ -1,11 +1,12 @@
 @import "../scss/variables";
 
 :root {
-    --brand: hsl(172, 100%, 55%);
+    --brand: hsl(172, 75%, 54%);
     --brand-hue: 172;
-    --brand-saturation: 100%;
-    --brand-lightness: 55%;
-
+    --brand-saturation: 75%;
+    --brand-lightness: 54%;
+    --brand-split1: hsl(321.82, 70.21%, 53.92%);
+    --brand-split2: hsl(22.18, 70.21%, 53.92%);
     --brand-light: hsl(var(--brand-hue)
     var(--brand-saturation)
     var(--brand-lightness));
@@ -404,7 +405,7 @@ select {
     &-outlined {
         border-style: solid;
         border-width: 1px;
-        border-color: CanvasText;
+        border-color: var(--brand);
         background-color: transparent;
         color: var(--text1);
        &:hover {
@@ -451,7 +452,7 @@ select {
         flex-direction: column;
     }
     .card-text {
-        border: 1px solid var(--surface2);
+        border: 1px solid var(--shadow-3);
         margin: var(--space-xxs) 0;
         padding: 0 var(--space-sm);
         max-height: 8rem;
