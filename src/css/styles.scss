@@ -451,7 +451,7 @@ select {
         flex-direction: column;
     }
     .card-text {
-        border: 1px solid var(--surface4);
+        border: 1px solid var(--surface2);
         margin: var(--space-xxs) 0;
         padding: 0 var(--space-sm);
         max-height: 8rem;
@@ -479,7 +479,7 @@ select {
     padding: 1rem;
     justify-content: space-between;
     max-width: 70vw;
-    min-height: 16rem;
+    min-height: 32rem;
 }
 
 .cards-group {
