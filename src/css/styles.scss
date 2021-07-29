@@ -281,9 +281,8 @@ fieldset {
     place-content: center;
     border-radius: 0%;
     @include elevation-4;
-    color: CanvasText;
+   
     a {
-        color: CanvasText;
         text-decoration: none;
         &:hover {
             text-decoration: underline;
