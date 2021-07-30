@@ -448,7 +448,7 @@ select {
         align-items: center;
         border-radius: var(--br) var(--br) 0 0;
         border-bottom: 1px solid var(--shadow-3);
-        padding: var(--space-xs) var(--space-sm);
+        padding: var(--space-xs) var(--space-xs);
         height: 2rem;
     }
     .card-content {
@@ -484,7 +484,7 @@ select {
     }
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0.25rem 0.25rem;
     justify-content: space-between;
     min-width: var(--min-card-width);
     max-width: 75vw;
