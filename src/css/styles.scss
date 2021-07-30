@@ -371,7 +371,7 @@ select {
     cursor: pointer;
     text-align: center;
     border-radius: var(--br);
-    padding: var(--space-xxs) var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
     margin: var(--space-xxs);
     @include surface3;
     border-color: var(--surface4);
@@ -418,7 +418,7 @@ select {
         @include elevation-2;
         &:hover{
             @include elevation-2;
-            @include surface2;
+            @include hover-filter-light;
         }
     }
 }
