@@ -215,6 +215,10 @@ p.text1 {
         height: 0;
     }
 }
+
+@mixin button-padding {
+    padding: var(--space-xs) var(--space-sm);
+}
 h1,h2,h3 {
     margin: 0;
     font-weight: 500;
@@ -268,6 +272,12 @@ fieldset {
   0 11.2px 16.8px hsl(var(--surface-shadow) / calc(var(--shadow-strength) - 0.176)),
   0 50px 75px hsl(var(--surface-shadow) / var(--shadow-strength));
 }
+@mixin rad-shadow{
+    box-shadow:
+    0 3.3px 5px hsl(var(--surface-shadow) / calc(var(--shadow-strength) - 0.184)),
+    0 11.2px 16.8px hsl(var(--surface-shadow) / calc(var(--shadow-strength) - 0.176)),
+    0 50px 75px hsl(var(--surface-shadow) / var(--shadow-strength));
+}
 .navbar {
     height: 3.25rem;
     padding: var(--space-xxs) 0;
@@ -310,7 +320,7 @@ fieldset {
         .link {
            text-align: center;
            border-radius: var(--br);
-           padding: var(--space-xxs) var(--space-sm);
+           @include button-padding;
            margin: var(--space-xxs);
           &:hover{
            @include hover-brighten;
@@ -366,20 +376,20 @@ select {
 // source: https://codepen.io/piccalilli/pen/Vxpjvo;
 .button {
     display: inline-block;
-    border: 1px solid transparent;
     text-decoration: none;
     cursor: pointer;
     text-align: center;
     border-radius: var(--br);
     padding: var(--space-xs) var(--space-sm);
     margin: var(--space-xxs);
-    @include surface3;
-    border-color: var(--surface4);
+    border-color: transparent;
+    background: inherit;
+    color: var(--text2);
     -webkit-appearance: none;
     -moz-appearance: none;
     &:hover{
         box-shadow: 0px 0px 0px 1px var(--surface4);
-        @include hover-brighten;
+        @include hover-darken;
     }
 
     &:active {
@@ -414,11 +424,12 @@ select {
     }
     &-raised {
         border: none;
-        background-color: transparent;
+        background-color: inherit;
         @include elevation-2;
         &:hover{
-            @include elevation-2;
-            @include hover-filter-light;
+            background-color: var(--brand);
+            color: --text2;
+            @include elevation-4;
         }
     }
 }
