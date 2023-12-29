@@ -60,7 +60,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('button')
       .addEventListener('click', () => {
-        const date = (new Date()).toISOString().split('T')[0];
+        const date = (new Date(new Date().setDate(new Date().getDate() - 1))).toISOString().split('T')[0];
         const url = `https://twitter.com/search?q=filter%3Afollows%20min_faves%3A100%20-filter%3Asafe%20since%3A${date}`
         window.open(url, '_blank');
       })
