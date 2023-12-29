@@ -224,6 +224,7 @@ main {
     gap: var(--space-xl);
     place-content: center;
     padding: var(--space-sm);
+    height: 100vh;
     @media screen and (min-width: 540px) {
         padding: var(--space-lg);
     }
@@ -280,7 +281,7 @@ fieldset {
     place-content: center;
     border-radius: 0%;
     @include elevation-4;
-   
+
     a {
         text-decoration: none;
         &:hover {
@@ -314,7 +315,7 @@ fieldset {
            padding: var(--space-xxs) var(--space-sm);
            margin: var(--space-xxs);
            @include hover-brighten;
-        }        
+        }
         .link:first-child {
             margin-left: var(--space-sm);
         }
