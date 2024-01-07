@@ -67,7 +67,7 @@
       .addEventListener('click', () => {
         const since = (new Date(new Date().setDate(new Date().getDate() - 2))).toISOString().split('T')[0];
         const until = (new Date(new Date().setDate(new Date().getDate() - 1))).toISOString().split('T')[0];
-        const url = `https://twitter.com/search?q=filter%3Afollows%20min_faves%3A100%20-filter%3Asafe%20since%3A${since}%20until%3A${until}`
+        const url = `https://twitter.com/search?q=filter%3Afollows%20min_faves%3A100%20-filter%3Asafe%20since%3A${since}%20until%3A${until}&f=live`
         window.open(url, '_blank');
       })
   })
